@@ -28,9 +28,9 @@ namespace WinFormsApp1
             text = "Мета: Розвиватися і покращувати свої навички в різних сферах.";
             temp += text.Length;
             MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            text = Convert.ToString(temp / 6);
+            text = "Середнє число символів: ";
             temp += text.Length;
-            MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(text + Convert.ToString(temp / 6), title, MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
     }
