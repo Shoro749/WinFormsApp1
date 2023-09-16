@@ -27,7 +27,9 @@ namespace WinFormsApp1
             MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
             text = "Мета: Розвиватися і покращувати свої навички в різних сферах.";
             temp += text.Length;
-            title = Convert.ToString(temp/6);
+            MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            text = Convert.ToString(temp / 6);
+            temp += text.Length;
             MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
