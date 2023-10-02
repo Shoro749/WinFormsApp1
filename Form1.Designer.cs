@@ -22,6 +22,7 @@
         private void InitializeComponent()
         {
             Menu = new GroupBox();
+            button9 = new Button();
             button8 = new Button();
             button7 = new Button();
             button6 = new Button();
@@ -29,7 +30,6 @@
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
-            button1 = new Button();
             Basket = new ListBox();
             gb_payable = new GroupBox();
             b_printcheck = new Button();
@@ -38,12 +38,15 @@
             label2 = new Label();
             label1 = new Label();
             tb_ResultPrice = new TextBox();
+            b_delete = new Button();
+            b_renew = new Button();
             Menu.SuspendLayout();
             gb_payable.SuspendLayout();
             SuspendLayout();
             // 
             // Menu
             // 
+            Menu.Controls.Add(button9);
             Menu.Controls.Add(button8);
             Menu.Controls.Add(button7);
             Menu.Controls.Add(button6);
@@ -51,13 +54,22 @@
             Menu.Controls.Add(button4);
             Menu.Controls.Add(button3);
             Menu.Controls.Add(button2);
-            Menu.Controls.Add(button1);
             Menu.Location = new Point(375, 12);
             Menu.Name = "Menu";
             Menu.Size = new Size(413, 426);
             Menu.TabIndex = 0;
             Menu.TabStop = false;
             Menu.Text = "Меню";
+            // 
+            // button9
+            // 
+            button9.Location = new Point(19, 22);
+            button9.Name = "button9";
+            button9.Size = new Size(108, 101);
+            button9.TabIndex = 8;
+            button9.Text = "Еспрессо 15 грн";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += b1_Click;
             // 
             // button8
             // 
@@ -67,6 +79,7 @@
             button8.TabIndex = 7;
             button8.Text = "French Press 12 грн";
             button8.UseVisualStyleBackColor = true;
+            button8.Click += b8_Click;
             // 
             // button7
             // 
@@ -76,6 +89,7 @@
             button7.TabIndex = 6;
             button7.Text = "Drip Coffee 10 грн";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += b7_Click;
             // 
             // button6
             // 
@@ -85,6 +99,7 @@
             button6.TabIndex = 5;
             button6.Text = "  Кава   молота   25 грн";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += b6_Click;
             // 
             // button5
             // 
@@ -94,6 +109,7 @@
             button5.TabIndex = 4;
             button5.Text = "Кавові  суміші    20 грн";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += b5_Click;
             // 
             // button4
             // 
@@ -103,6 +119,7 @@
             button4.TabIndex = 3;
             button4.Text = "Кава в зернах 30 грн";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += b4_Click;
             // 
             // button3
             // 
@@ -112,6 +129,7 @@
             button3.TabIndex = 2;
             button3.Text = "  Робуста  5 грн";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += b3_Click;
             // 
             // button2
             // 
@@ -121,15 +139,7 @@
             button2.TabIndex = 1;
             button2.Text = " Арабіка  10 грн";
             button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(19, 22);
-            button1.Name = "button1";
-            button1.Size = new Size(108, 101);
-            button1.TabIndex = 0;
-            button1.Text = "Еспрессо 15 грн";
-            button1.UseVisualStyleBackColor = true;
+            button2.Click += b2_Click;
             // 
             // Basket
             // 
@@ -137,7 +147,7 @@
             Basket.ItemHeight = 15;
             Basket.Location = new Point(12, 12);
             Basket.Name = "Basket";
-            Basket.Size = new Size(357, 289);
+            Basket.Size = new Size(357, 244);
             Basket.TabIndex = 2;
             // 
             // gb_payable
@@ -163,6 +173,7 @@
             b_printcheck.TabIndex = 5;
             b_printcheck.Text = "Друкувати чек";
             b_printcheck.UseVisualStyleBackColor = true;
+            b_printcheck.Click += bt_CheckClick;
             // 
             // cb_isDiscount
             // 
@@ -172,6 +183,7 @@
             cb_isDiscount.Size = new Size(15, 14);
             cb_isDiscount.TabIndex = 4;
             cb_isDiscount.UseVisualStyleBackColor = true;
+            cb_isDiscount.CheckedChanged += ChackedChanged;
             // 
             // tb_Discount
             // 
@@ -206,12 +218,34 @@
             tb_ResultPrice.Size = new Size(69, 23);
             tb_ResultPrice.TabIndex = 0;
             // 
+            // b_delete
+            // 
+            b_delete.Location = new Point(12, 262);
+            b_delete.Name = "b_delete";
+            b_delete.Size = new Size(168, 43);
+            b_delete.TabIndex = 4;
+            b_delete.Text = "Очистити";
+            b_delete.UseVisualStyleBackColor = true;
+            b_delete.Click += DeleteClick;
+            // 
+            // b_renew
+            // 
+            b_renew.Location = new Point(195, 262);
+            b_renew.Name = "b_renew";
+            b_renew.Size = new Size(168, 43);
+            b_renew.TabIndex = 6;
+            b_renew.Text = "Обновити";
+            b_renew.UseVisualStyleBackColor = true;
+            b_renew.Click += RenewClick;
+            // 
             // Cafe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
             ClientSize = new Size(800, 450);
+            Controls.Add(b_renew);
+            Controls.Add(b_delete);
             Controls.Add(gb_payable);
             Controls.Add(Basket);
             Controls.Add(Menu);
@@ -228,7 +262,6 @@
 
         private GroupBox Menu;
         private ListBox Basket;
-        private Button button1;
         private Button button4;
         private Button button3;
         private Button button2;
@@ -243,5 +276,8 @@
         private TextBox tb_ResultPrice;
         private Button b_printcheck;
         private CheckBox cb_isDiscount;
+        private Button button9;
+        private Button b_delete;
+        private Button b_renew;
     }
 }
